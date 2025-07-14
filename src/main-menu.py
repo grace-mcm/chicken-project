@@ -1,4 +1,4 @@
-
+from db_utils import (chicken_list, add_new_chicken, update_chicken, remove_chicken)
 
 def main_menu():
     print("Welcome to the Chicken Project")
@@ -13,6 +13,7 @@ def main_menu():
 def view_chicken(choice):
     if choice == "1":
         print("Viewing all chickens...")
+        chicken_list()
     else:
         print("Invalid choice. Please select a valid option.")
 
@@ -23,7 +24,41 @@ def add_chicken(choice):
         chicken_breed = input("Enter the breed of the chicken: ")
         chicken_age = input("Enter the age of the chicken: ")
         chicken_birthday = input("Enter the birthday of the chicken (YYYY-MM-DD): ")
-        
+        add_new_chicken(chicken_name, chicken_breed, chicken_age, chicken_birthday)
         print(f"Chicken '{chicken_name}' added successfully.")
     else:
         print("Invalid choice. Please select a valid option.")
+
+def update_chicken(choice):
+    if choice == "3":
+        print("Updating a chicken...")
+        chicken_id = input("Enter the ID of the chicken to update: ")
+        chicken_name = input("Enter the new name of the chicken: ")
+        chicken_breed = input("Enter the new breed of the chicken: ")
+        chicken_age = input("Enter the new age of the chicken: ")
+        chicken_birthday = input("Enter the new birthday of the chicken (YYYY-MM-DD): ")
+        update_chicken(chicken_id, chicken_name, chicken_breed, chicken_age, chicken_birthday)
+        print(f"Chicken with ID '{chicken_id}' updated successfully.")
+    else:
+        print("Invalid choice. Please select a valid option.")
+
+def remove_chicken(choice):
+    if choice == "4":
+        print("Removing a chicken...")
+        chicken_id = input("Enter the ID of the chicken to remove: ")
+        remove_chicken(chicken_id)
+        if chicken_id:
+            remove_chicken(chicken_id)
+            print(f"Chicken with ID '{chicken_id}' removed successfully.")
+        else:
+            print("No chicken ID provided.")
+    else:
+        print("Invalid choice. Please select a valid option.")  
+
+def exit_program(choice):
+    if choice == "5":
+        print("Exiting the program. Goodbye!")
+        return True
+    else:
+        print("Invalid choice. Please select a valid option.")
+        return False
