@@ -1,5 +1,6 @@
 from db_utils import (chicken_list, add_new_chicken, update_chicken, remove_chicken)
 
+#lists all available functions in the chicken project
 def main_menu():
     print("Welcome to the Chicken Project")
     print("1. View All Chickens")
@@ -10,6 +11,7 @@ def main_menu():
     choice = input("Please enter your choice (1-5): ")
     return choice
 
+# handles user input and lists all current chicken entries
 def view_chicken(choice):
     if choice == "1":
         print("Viewing all chickens...")
@@ -17,6 +19,7 @@ def view_chicken(choice):
     else:
         print("Invalid choice. Please select a valid option.")
 
+# handles user input for adding chickens to the database
 def add_chicken(choice):
     if choice == "2":
         print("Adding a new chicken...")
@@ -29,6 +32,7 @@ def add_chicken(choice):
     else:
         print("Invalid choice. Please select a valid option.")
 
+# handles user input for updating existing chickens in the database
 def update_chicken(choice):
     if choice == "3":
         print("Updating a chicken...")
@@ -42,6 +46,7 @@ def update_chicken(choice):
     else:
         print("Invalid choice. Please select a valid option.")
 
+# handles user input for removing chickens from the database
 def remove_chicken(choice):
     if choice == "4":
         print("Removing a chicken...")
@@ -55,6 +60,7 @@ def remove_chicken(choice):
     else:
         print("Invalid choice. Please select a valid option.")  
 
+# handles user input for exiting the program
 def exit_program(choice):
     if choice == "5":
         print("Exiting the program. Goodbye!")

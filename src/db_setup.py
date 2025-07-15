@@ -19,6 +19,7 @@ connection = psycopg2.connect(f"""
 
 cursor = connection.cursor()
 
+# Create the chickens table
 def create_chickens_table(connection):
     cursor = connection.cursor()
     cursor.execute("""

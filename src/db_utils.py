@@ -24,6 +24,7 @@ def chicken_list():
     for row in result:
         print(row)
 
+# adds a new chicken to the chickens table
 def add_new_chicken(name, breed, age, birthday):
     add_chicken = """
                     INSERT INTO chickens(name, breed, age, birthday)
@@ -34,6 +35,7 @@ def add_new_chicken(name, breed, age, birthday):
     cursor.execute(add_chicken, new_chicken_values)
     connection.commit()
 
+# updates an existing chicken's details in the chickens table
 def update_chicken(chicken_id, name, breed, age, birthday):
     update_chicken_query = """
                             UPDATE chickens
@@ -45,6 +47,7 @@ def update_chicken(chicken_id, name, breed, age, birthday):
     cursor.execute(update_chicken_query, update_values)
     connection.commit()
 
+# removes a chicken from the chickens table
 def remove_chicken(chicken_id):
     remove_chicken_query = """
                             DELETE FROM chickens
