@@ -34,3 +34,13 @@ def create_chickens_table(connection):
     connection.commit()
     cursor.close()
 
+def extract_csv():
+    with open('data/british_chickens.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header row
+        for row in reader:
+            cursor.execute("""
+            INSERT INTO chickens (name, breed, age, birthday)
+            VALUES (%s, %s, %s, %s);
+        """, row)
+    connection.commit()
