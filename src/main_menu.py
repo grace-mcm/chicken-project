@@ -2,6 +2,7 @@ from db_utils import (chicken_list, add_new_chicken, update_chicken, remove_chic
 
 #lists all available functions in the chicken project
 def main_menu():
+    clear_screen()
     print("Welcome to the Chicken Project")
     print("1. View All Chickens")
     print("2. Add New Chicken")
@@ -68,3 +69,7 @@ def exit_program(choice):
     else:
         print("Invalid choice. Please select a valid option.")
         return False
+    
+def clear_screen():
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
